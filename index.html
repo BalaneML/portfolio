@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>横山 順 | Portfolio — 生成AIで社会のデータ課題に挑む</title>
+  <meta name="description" content="生成AIを用いた人口合成を研究する大学院生のデジタルポートフォリオ。専門学校から大学編入・大学院進学を経て、理論と実装の往復でデータ駆動の価値創造を目指す。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#profile" class="nav-logo">Jun&nbsp;Yokoyama</a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu" role="navigation" aria-label="目次">
+        <ul class="nav-list">
+          <li><a href="#profile"  class="nav-link">プロフィール</a></li>
+          <li><a href="#career"   class="nav-link">キャリア</a></li>
+          <li><a href="#research" class="nav-link">研究</a></li>
+          <li><a href="#skills"   class="nav-link">スキル</a></li>
+          <li><a href="#life"     class="nav-link">私生活</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== 1. プロフィール ========== -->
+    <section id="profile" class="section section--hero">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="profile-image-wrap">
+            <!-- images/cover.jpg を追加してください -->
+            <img
+              src="images/cover.jpg"
+              alt="横山 順のプロフィール画像"
+              class="profile-image"
+              onerror="this.parentElement.querySelector('.profile-placeholder').style.display='flex'; this.style.display='none';"
+            >
+            <div class="profile-placeholder" aria-hidden="true">
+              <span>Photo</span>
+            </div>
+          </div>
+
+          <div class="hero-text">
+            <p class="hero-label">Portfolio</p>
+            <h1 class="profile-name">横山 順</h1>
+            <p class="profile-affiliation">大阪大学大学院 情報科学研究科 マルチメディア工学専攻 データ生成工学講座 ／ 修士1年</p>
+            <blockquote class="profile-tagline">
+              理論を実装に変え、データから社会の未来を描く。<br>
+              生成AIで「まだ存在しないデータ」を生み出し、都市と社会の意思決定を支える研究者です。
+            </blockquote>
+            <div class="profile-links">
+              <a href="https://github.com/BalaneML" class="btn-link" target="_blank" rel="noopener">GitHub</a>
+              <!-- <a href="https://twitter.com/TODO" class="btn-link" target="_blank" rel="noopener">X / Twitter</a> -->
+              <!-- <a href="mailto:TODO@example.com" class="btn-link">Mail</a> -->
+            </div>
+          </div>
+        </div>
+        <a href="#career" class="scroll-hint" aria-label="次のセクションへ">
+          <span>scroll</span>
+          <svg width="16" height="24" viewBox="0 0 16 24" fill="none" aria-hidden="true">
+            <path d="M8 4v16M2 14l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== 2. キャリアとビジョン ========== -->
+    <section id="career" class="section section--alt">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">キャリアとビジョン</h2>
+          <p class="section-sub">過去 · 現在 · 未来</p>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <span class="timeline-badge">過去</span>
+              <h3 class="timeline-heading">専門学校から、徳島大学、そして大阪大学へ — 環境を自ら変えてきた</h3>
+              <p>
+                情報システムの基礎を専門学校で学んだ後、より深く学びたいという思いから徳島大学へ編入し、深層学習と画像処理に取り組みました。
+                学部3年次後半、仮配属していた研究室が教員の都合で変わり、研究テーマを白紙から考え直すことに。
+                私はこれを「自分のやりたい研究に挑戦できる絶好の機会」と捉え直し、関心分野の論文を幅広く調べて方向性を定め、新しい担当教員へ自ら提案。
+                結果として、他学部との共同研究で「物体検出モデルを用いた豚の交配行動自動検出システム」というテーマを獲得し、立ち上げから実装・評価まで主体的に進めました。
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--now"></div>
+            <div class="timeline-body">
+              <span class="timeline-badge timeline-badge--now">現在</span>
+              <h3 class="timeline-heading">大阪大学大学院で、生成AIによる人口合成を研究</h3>
+              <p>
+                現在は大阪大学大学院で、生成AIを用いた人口合成手法の開発に取り組んでいます。
+                VAE・GAN・CTGAN・TVAEといった深層生成モデルを、論文の理論を精読したうえでPyTorchやNumPyで自ら実装し、その挙動を一つ一つ検証。
+                プライバシーを保護しながら、現実の人々の行動を統計的に妥当に再現する「合成データ」を生み出すことに挑んでいます。
+                技術の形骸化を防ぐため、シンポジウムや技術カンファレンスにも能動的に足を運び、最新の知見を吸収し続けています。
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot--future"></div>
+            <div class="timeline-body">
+              <span class="timeline-badge timeline-badge--future">未来</span>
+              <h3 class="timeline-heading">研究の成果を、社会とコミュニティへ還元する</h3>
+              <p>
+                目指すのは、自分が扱う手法を一つの応用にとどめず、業界の基盤となるような汎用的なパイプラインへと育てることです。
+                将来は研究プロジェクトをリードする立場で、基礎研究と社会実装のバランスを取りながら、学術的価値と社会的価値の両立に貢献したい。
+                博士課程への進学も視野に入れつつ、グローバルな環境で、自分の成果が社会やコミュニティに広く還元される研究開発に携わることを目標としています。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vision-card">
+          <h3 class="vision-label">価値観</h3>
+          <p>
+            私が大切にしているのは、<strong>主体的に動き、挑戦を重ねること</strong>、そして<strong>理論を理解したうえで自分の手で実装に落とし込むこと</strong>です。
+            専門学校から徳島大学、そして大阪大学へ — その都度、与えられた環境で待つのではなく、自ら機会を切り拓き、仲間とともに切磋琢磨してきました。
+            研究で最も面白いと感じるのは、課題を明確にし、仮説を立てる創造的な瞬間です。そしてその難しさは、いつも担当教員や先輩・同期・後輩といった「頼れる人たち」との対話を通じて乗り越えてきました。
+            深く考え抜く力と、人と協働する力。この二つを軸に、技術を通じて社会に意味のある価値を生み出していきたいと考えています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. 研究 ========== -->
+    <section id="research" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">研究</h2>
+          <p class="section-sub">テーマと意義 · 研究スタイル · ツール</p>
+        </header>
+
+        <div class="research-card">
+          <h3 class="research-theme-title">生成AIを用いた人口合成手法の開発</h3>
+          <p>
+            都市交通計画や政策立案には、個人単位の行動データである「人口マイクロデータ」が不可欠です。
+            しかし実際の調査票情報は秘匿処理が施されており、研究者が直接アクセスすることには大きな制約があります。
+            そこで本研究では、<strong>実データの統計的性質を保ちながら、プライバシーリスクを低減した合成データ</strong>を生成する手法に取り組んでいます。
+            あわせて、特定の属性の組み合わせが調査データに存在しないために推計が困難になる「サンプリングゼロ問題」や、合成した個人に一日の活動スケジュールを割り付ける「活動割り付け」にも挑戦しています。
+          </p>
+          <p>
+            個人の移動・行動データは、都市計画・交通予測・災害管理・疫学予測など幅広い分野で重視されています。
+            一方で、交通・都市計画で扱う表形式データには、連続変数と離散変数の混在・連続変数の多峰性分布・カテゴリ変数の著しい不均衡といった固有の難しさがあり、画像や言語向けの既存手法をそのまま適用することはできません。
+          </p>
+          <p>
+            私のアプローチは、<strong>生成AIモデルとパーソントリップ調査などの実活動データを組み合わせ、人口合成と活動割り付けの両課題を一貫して扱う</strong>ことです。
+            ルールベース手法の画一性と、深層学習手法における活動の時間的整合性の欠如 — その双方の弱点を、統計手法（IPF）とVAEの融合などによって乗り越えることを目指しています。
+          </p>
+        </div>
+
+        <div class="tools-section">
+          <h3 class="tools-label">研究スタイル・使用ツール</h3>
+          <div class="tool-cards">
+            <div class="tool-card">
+              <span class="tool-icon" aria-hidden="true">📚</span>
+              <h4>深層生成モデル（VAE / GAN / CTGAN / TVAE）</h4>
+              <p>論文の理論を精読したうえで、連続値の多峰性正規化やカテゴリ変数の不均衡といった表形式データ特有の課題まで踏み込んで理解し、実装に反映しています。</p>
+            </div>
+            <div class="tool-card">
+              <span class="tool-icon" aria-hidden="true">💻</span>
+              <h4>Python / PyTorch / NumPy</h4>
+              <p>モデルを自分の手で実装し、その挙動を一つ一つ検証。「動くこと」だけでなく「なぜそう動くのか」を確かめながら研究を進めています。</p>
+            </div>
+            <div class="tool-card">
+              <span class="tool-icon" aria-hidden="true">🔬</span>
+              <h4>統計手法 × 実データ（IPF / パーソントリップ調査）</h4>
+              <p>機械学習の理論・統計手法・ドメイン知識を統合し、実際の活動データと組み合わせることで、生成データの妥当性とプライバシー保護を両立させます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. スキル・実績 ========== -->
+    <section id="skills" class="section section--alt">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">スキル・実績</h2>
+          <p class="section-sub">学歴 · スキル · 資格 · 業績</p>
+        </header>
+
+        <div class="skills-grid">
+
+          <div class="skills-col">
+            <h3 class="col-heading">学歴</h3>
+            <ul class="edu-list">
+              <li class="edu-item">
+                <span class="edu-year">2026–</span>
+                <div>
+                  <strong>大阪大学大学院 情報科学研究科 マルチメディア工学専攻</strong>
+                  <p>データ生成工学講座／修士1年 在学中（生成AIによる人口合成を研究）</p>
+                </div>
+              </li>
+              <li class="edu-item">
+                <span class="edu-year">2024–26</span>
+                <div>
+                  <strong>徳島大学 理工学部 理工学科 知能情報コース</strong>
+                  <p>3年次編入・卒業（高信頼マルチモーダル感性知能と知識工学研究室 [TMAK]／深層学習・画像処理）</p>
+                </div>
+              </li>
+              <li class="edu-item">
+                <span class="edu-year">2021–24</span>
+                <div>
+                  <strong>専門学校 徳島穴吹カレッジ</strong>
+                  <p>卒業（情報システムの基礎を習得）</p>
+                </div>
+              </li>
+              <li class="edu-item">
+                <span class="edu-year">2018–21</span>
+                <div>
+                  <strong>徳島県立吉野川高等学校</strong>
+                  <p>卒業</p>
+                </div>
+              </li>
+            </ul>
+
+            <h3 class="col-heading">資格・語学</h3>
+            <ul class="tag-list">
+              <li class="tag">応用情報技術者</li>
+              <li class="tag">基本情報技術者</li>
+              <li class="tag">TOEIC 735</li>
+            </ul>
+
+            <h3 class="col-heading">業績・発表</h3>
+            <ul class="pub-list">
+              <li class="pub-item">物体検出モデルを用いた豚の交配行動自動検出システムに関する研究発表 [TODO: 学会名・年]</li>
+              <li class="pub-item">グループゲーム開発コンテストにて受賞（2D対戦型シューティング／グラフィック担当）[TODO: 大会名・年]</li>
+              <li class="pub-item">NTTコミュニケーション科学基礎研究所 オープンハウス2026 参加</li>
+            </ul>
+          </div>
+
+          <div class="skills-col">
+            <h3 class="col-heading">スキル</h3>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <div class="skill-bar-label">
+                  <span>Python / PyTorch</span>
+                  <span class="skill-level">研究の主力（約2年）</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="--w: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-bar-label">
+                  <span>深層学習・生成モデル</span>
+                  <span class="skill-level">理論〜実装まで</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="--w: 78%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-bar-label">
+                  <span>C / C++</span>
+                  <span class="skill-level">ゲーム開発・組込（約2〜3年）</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="--w: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-bar-label">
+                  <span>データ分析・統計（IPF 等）</span>
+                  <span class="skill-level">ドメイン知識と統合</span>
+                </div>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="--w: 62%"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="col-heading">その他の技術</h3>
+            <ul class="tag-list">
+              <li class="tag">NumPy</li>
+              <li class="tag">YOLO / 物体検出</li>
+              <li class="tag">GUI 開発</li>
+              <li class="tag">SDL（C言語）</li>
+              <li class="tag">Arduino</li>
+              <li class="tag">Ruby</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. 私生活・趣味 ========== -->
+    <section id="life" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">私生活・趣味</h2>
+          <p class="section-sub">研究室の外の自分</p>
+        </header>
+
+        <p class="life-intro">
+          研究の外では、体を動かすことが私のリズムを整えてくれます。サッカーやバスケットボールでは仲間と呼吸を合わせる楽しさを、マラソンでは自分のペースで目標に向かい続ける粘り強さを学んできました。
+          学生時代には、C言語とSDLによる2D対戦シューティングの制作（コンテスト受賞）や、Arduinoを用いたロボットコンテストにもチームで打ち込みました。
+          「仲間と挑戦すること」と「自分の手で作りきること」 — スポーツもものづくりも、その姿勢は研究と地続きです。
+        </p>
+
+        <div class="hobby-cards">
+          <div class="hobby-card">
+            <span class="hobby-icon" aria-hidden="true">⚽</span>
+            <h3>サッカー</h3>
+            <p>チームで連携して一つの目標を狙う面白さが好きです。状況を読んで自分の役割を考える感覚は、研究で全体像を捉える視点にも通じています。</p>
+          </div>
+          <div class="hobby-card">
+            <span class="hobby-icon" aria-hidden="true">🏀</span>
+            <h3>バスケットボール</h3>
+            <p>めまぐるしく変わる局面のなかで、瞬時に判断して動く緊張感が魅力。仲間と声を掛け合いながら流れを作っていく時間が、良い気分転換になっています。</p>
+          </div>
+          <div class="hobby-card">
+            <span class="hobby-icon" aria-hidden="true">🏃</span>
+            <h3>マラソン</h3>
+            <p>自分のペースを守りながら目標までやり切る競技。コツコツ積み重ねて結果につなげる感覚は、長期的に向き合う研究そのものだと感じています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 横山 順 (Jun Yokoyama). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

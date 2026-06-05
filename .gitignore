@@ -1,0 +1,5 @@
+.DS_Store
+
+# 個人写真は公開しない（プロフィール画像 cover.jpg のみ公開）
+images/*
+!images/cover.jpg
