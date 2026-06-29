@@ -50,6 +50,10 @@
     });
   }
 
+  // モーション低減を希望するユーザーか
+  const reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ===== フェードインアニメーション（IntersectionObserver） =====
   function initFadeIn() {
     const targets = document.querySelectorAll(
@@ -57,6 +61,9 @@
       '.research-card, .research-figure, .tool-card, .skill-bar, ' +
       '.hobby-card, .edu-item, .pub-item, .work-card, .gallery-item'
     );
+
+    // モーション低減時はアニメせず、そのまま表示（内容が消えない）
+    if (reduceMotion) return;
 
     targets.forEach(function (el) {
       el.classList.add('fade-in');
@@ -66,10 +73,12 @@
       function (entries) {
         entries.forEach(function (entry, i) {
           if (entry.isIntersecting) {
-            // 少しずつ遅延してフェードイン
+            // 少しずつ遅延してフェードイン。
+            // 高速スクロールで一度に多数が交差しても遅延が累積し過ぎない
+            // よう上限を設け、内容が長く空白に見えるのを防ぐ。
             setTimeout(function () {
               entry.target.classList.add('visible');
-            }, i * 60);
+            }, Math.min(i, 6) * 55);
             observer.unobserve(entry.target);
           }
         });
@@ -86,6 +95,12 @@
   function initSkillBars() {
     const fills = document.querySelectorAll('.skill-bar-fill');
     if (fills.length === 0) return;
+
+    // モーション低減時はアニメせず、満たした状態で即表示
+    if (reduceMotion) {
+      fills.forEach(function (fill) { fill.classList.add('animated'); });
+      return;
+    }
 
     const observer = new IntersectionObserver(
       function (entries) {
@@ -158,6 +173,12 @@
   if ('IntersectionObserver' in window) {
     initFadeIn();
     initSkillBars();
+  } else {
+    // IntersectionObserver 非対応：アニメに頼らず全要素を表示状態にする
+    document.querySelectorAll('.skill-bar-fill').forEach(function (fill) {
+      fill.classList.add('animated');
+    });
+    // .fade-in は付与していないため要素は既定で可視（追加処理は不要）
   }
   initLightbox();
 })();

@@ -967,6 +967,24 @@ ul  { list-style: none; }
   transform: translateY(0);
 }
 
+/* アニメ保険：モーション低減を希望するユーザーには即表示（内容が消えない） */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .skill-bar-fill {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+  .scroll-hint svg,
+  .lightbox { transition: none !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; }
+}
+
 /* ===== レスポンシブ（タブレット） ===== */
 @media (max-width: 768px) {
   /* ナビ */
