@@ -11,10 +11,18 @@
   const navMenu   = document.querySelector('.nav-menu');
   const navLinks  = document.querySelectorAll('.nav-link');
 
-  // スクロール時にナビの背景を変える
+  const progressBar = document.getElementById('scroll-progress');
+
+  // スクロール時にナビの背景を変える＋進捗バー更新
   function onScroll() {
     nav.classList.toggle('scrolled', window.scrollY > 20);
     updateActiveLink();
+    if (progressBar) {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const ratio = max > 0 ? window.scrollY / max : 0;
+      progressBar.style.transform = 'scaleX(' + ratio + ')';
+    }
   }
 
   // ハンバーガーメニュー

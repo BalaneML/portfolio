@@ -209,7 +209,11 @@ ul  { list-style: none; }
   height: 3px;
   background: var(--accent);
   border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
 }
+/* B. 見出し下線のドローイン（JSがfade-inを付与した時のみ。低減/非対応時は既定36pxのまま） */
+.fade-in .section-title::after { width: 0; }
+.fade-in.visible .section-title::after { width: 36px; }
 .section-sub {
   color: var(--muted);
   font-size: 0.875rem;
@@ -366,6 +370,20 @@ ul  { list-style: none; }
   color: var(--accent);
   border-color: var(--accent);
   opacity: 1;
+}
+
+/* ===== B. スクロール進捗バー ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 150;
+  background: linear-gradient(90deg, var(--accent), var(--accent-teal));
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
 }
 
 /* ===== A. ヒーロー演出（ロード時の立ち上がり／背景の微動／写真の浮遊） ===== */
