@@ -427,6 +427,77 @@ ul  { list-style: none; }
 }
 .research-card p:last-child { margin-bottom: 0; }
 
+.research-lead {
+  color: var(--accent-teal);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+.research-block { margin-top: 1.75rem; }
+.research-block--first { margin-top: 0; }
+.research-sublabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.55rem;
+}
+.research-steps {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.9rem;
+}
+.research-steps li {
+  position: relative;
+  padding-left: 1.7rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.research-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.research-steps li strong,
+.research-roadmap li strong { color: var(--text); }
+.research-roadmap {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.research-roadmap li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.research-roadmap li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-teal);
+}
+.research-todo {
+  color: var(--accent-gold) !important;
+  font-size: 0.82rem !important;
+}
+.research-links { margin-top: 0.2rem; }
+.research-links-note {
+  font-size: 0.8rem !important;
+  margin-top: 0.6rem !important;
+}
+
 .research-figure {
   margin: 0 0 2.5rem;
   text-align: center;
@@ -604,6 +675,16 @@ ul  { list-style: none; }
 }
 .pub-block .col-heading { margin-top: 0; }
 .pub-year { color: var(--accent); margin-right: 0.5rem; font-weight: 600; }
+.pub-affil {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--accent-teal);
+  border: 1px solid rgba(78, 205, 196, 0.25);
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+  white-space: nowrap;
+}
 .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
 .pub-item {
   font-size: 0.875rem;

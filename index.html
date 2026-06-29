@@ -164,31 +164,84 @@
       <div class="container">
         <header class="section-header">
           <h2 class="section-title">研究</h2>
-          <p class="section-sub">テーマと意義 · 研究スタイル · ツール</p>
+          <p class="section-sub">問い · アプローチ · 進捗と展望</p>
         </header>
 
         <div class="research-card">
-          <h3 class="research-theme-title">生成AIを用いた人口合成手法の開発</h3>
-          <p>
-            都市交通計画や政策立案には、個人単位の行動データである「人口マイクロデータ」が不可欠です。
-            しかし実際の調査票情報は秘匿処理が施されており、研究者が直接アクセスすることには大きな制約があります。
-            そこで本研究では、<strong>実データの統計的性質を保ちながら、プライバシーリスクを低減した合成データ</strong>を生成する手法に取り組んでいます。
-            あわせて、特定の属性の組み合わせが調査データに存在しないために推計が困難になる「サンプリングゼロ問題」や、合成した個人に一日の活動スケジュールを割り付ける「活動割り付け」にも挑戦しています。
-          </p>
-          <p>
-            個人の移動・行動データは、都市計画・交通予測・災害管理・疫学予測など幅広い分野で重視されています。
-            一方で、交通・都市計画で扱う表形式データには、連続変数と離散変数の混在・連続変数の多峰性分布・カテゴリ変数の著しい不均衡といった固有の難しさがあり、画像や言語向けの既存手法をそのまま適用することはできません。
-          </p>
-          <p>
-            私のアプローチは、<strong>生成AIモデルとパーソントリップ調査などの実活動データを組み合わせ、人口合成と活動割り付けの両課題を一貫して扱う</strong>ことです。
-            ルールベース手法の画一性と、深層学習手法における活動の時間的整合性の欠如 — その双方の弱点を、統計手法（IPF）とVAEの融合などによって乗り越えることを目指しています。
-          </p>
+          <h3 class="research-theme-title">生成AIによる合成人口の生活行動データ生成</h3>
+          <p class="research-lead">公的な集計統計から、属性条件付きの活動スケジュールを再現する</p>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">問い</h4>
+            <p>
+              個人を直接観測したデータが乏しい状況でも、誰もがアクセスできる<strong>「集計統計」だけ</strong>から、年齢・職業などの属性に応じた一日の生活行動（活動スケジュール）を、<strong>統計的に妥当かつプライバシーを保って</strong>再現できるか。
+            </p>
+          </div>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">背景・課題</h4>
+            <p>
+              都市交通計画や政策立案には個人単位の行動データ（人口マイクロデータ）が不可欠ですが、調査票情報は秘匿処理され直接利用が困難です。
+              一方で、パーソントリップ調査や社会生活基本調査は、時刻別の行動者率などを属性・地域で層別した「集計」として公開しています。
+              この<strong>「豊富な集計」と「乏しい個人データ」のギャップ</strong>を生成モデルでどう埋めるかが、本研究の出発点です。
+              加えて、行動の表形式データには連続・離散の混在、多峰性、カテゴリの著しい不均衡があり、画像・言語向けの手法をそのまま適用できない難しさもあります。
+            </p>
+          </div>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">アプローチ（研究の“軸”）</h4>
+            <p>新しい生成器を一つ提案することではなく、次の3つを一本につなぐことを軸に置いています。</p>
+            <ol class="research-steps">
+              <li><strong>集計からの弱教師学習</strong> — 個人ラベルに頼らず、公開集計を教師に学ぶ</li>
+              <li><strong>識別可能性</strong> — 「どの属性・地域の分け方なら、集計だけから条件付き生成を学べるか」を見極める</li>
+              <li><strong>feasibility 評価</strong> — 集計に合うだけの“非現実的な個人”を作らないことを評価で担保</li>
+            </ol>
+            <p>
+              これらを日本の公的データに根ざして検証し、プライバシーと妥当性を両立させます。
+              手法面では VAE 等の深層生成モデルと IPF 等の統計手法の組み合わせを基盤に、理論を精読して自前実装・検証しています。
+            </p>
+          </div>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">先行研究の中での位置づけ</h4>
+            <p>
+              この分野は新規生成器の“単発提案”が増え、評価条件の不統一から論文間で結果が比較しにくいという指摘があります。
+              本研究は生成器そのものの新しさではなく、<strong>「集計からどこまで学べるか」「どう評価されるべきか」を問い直す立場</strong>をとります。
+            </p>
+          </div>
         </div>
 
         <figure class="research-figure">
           <img src="images/research/research-overview.svg" alt="研究の全体像：入力データから人口合成エンジン（生成AI×IPF）、活動割り付けを経て、統計的に妥当かつプライバシーを保護した合成人口データを生成するまでのパイプライン図">
           <figcaption>図：研究の全体像 — 入力から合成人口データ生成までの流れ</figcaption>
         </figure>
+
+        <div class="research-card">
+          <div class="research-block research-block--first">
+            <h4 class="research-sublabel">現在の進捗</h4>
+            <p>
+              深層生成モデル（VAE / GAN / CTGAN / TVAE）と統計手法（IPF）を、論文の理論を精読したうえで PyTorch / NumPy で自前実装し、挙動を検証中です。評価設計と日本データでの検証はこれからのフェーズです。
+            </p>
+            <p class="research-todo">▸ 結果・知見：[TODO — 予備実験の結果が出たらここに追記]</p>
+          </div>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">今後の問い・ロードマップ</h4>
+            <ul class="research-roadmap">
+              <li>まず「活動スケジュール（いつ・何を）」を主役に、集計から条件付き生成できる範囲とその限界を明らかにする</li>
+              <li>次段階で「空間（どこで）」を接地し、生成データの実用性を下流タスクで検証する</li>
+              <li>長期的には、プライバシーを保った合成データを誰もが使える形で提供し、データ制約に阻まれてきた研究・政策を前進させる</li>
+            </ul>
+          </div>
+
+          <div class="research-block">
+            <h4 class="research-sublabel">成果物・リンク</h4>
+            <div class="profile-links research-links">
+              <a href="https://github.com/BalaneML/ActSyn" class="btn-link" target="_blank" rel="noopener">ActSyn（GitHub）</a>
+            </div>
+            <p class="research-links-note">ActSyn — NHTSデータセットから活動スケジュールを生成</p>
+          </div>
+        </div>
 
         <div class="tools-section">
           <h3 class="tools-label">研究スタイル・使用ツール</h3>
@@ -412,7 +465,7 @@
           <h3 class="col-heading">業績・発表</h3>
           <ul class="pub-list">
             <li class="pub-item">
-              <strong class="pub-year">2025</strong>「物体検知モデルを用いた豚の交配行動検知システム」NLP若手の会 第20回シンポジウム（YANS 2025）／ ポスター発表
+              <strong class="pub-year">2025</strong>「物体検知モデルを用いた豚の交配行動検知システム」NLP若手の会 第20回シンポジウム（YANS 2025）／ ポスター発表<span class="pub-affil">学部・徳島大学での研究</span>
             </li>
             <!-- 今後の発表・論文はこの形式で追加してください
             <li class="pub-item"><strong class="pub-year">2026</strong>「論文タイトル」学会名／口頭・ポスター</li>
