@@ -492,6 +492,33 @@ ul  { list-style: none; }
   color: var(--accent-gold) !important;
   font-size: 0.82rem !important;
 }
+.interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 1.75rem;
+  margin-top: 0.5rem;
+}
+.interest-item h5 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.interest-item h5 span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--accent-teal);
+  letter-spacing: 0.02em;
+  margin-top: 0.1rem;
+}
+.interest-item p {
+  font-size: 0.82rem !important;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+.interest-tags { margin-top: 0.3rem; }
+
 .research-links { margin-top: 0.2rem; }
 .research-links-note {
   font-size: 0.8rem !important;
@@ -918,6 +945,7 @@ ul  { list-style: none; }
   .skills-grid { grid-template-columns: 1fr; gap: 0; }
   .hobby-cards { grid-template-columns: 1fr; }
   .work-card   { grid-template-columns: 1fr; gap: 1.25rem; }
+  .interests   { grid-template-columns: 1fr; }
 
   .col-heading:first-child { margin-top: 0; }
 
