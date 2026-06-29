@@ -368,6 +368,35 @@ ul  { list-style: none; }
   opacity: 1;
 }
 
+/* ===== A. ヒーロー演出（ロード時の立ち上がり／背景の微動／写真の浮遊） ===== */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@keyframes heroDrift {
+  0%   { background-position: 0% 0%, 100% 100%; }
+  50%  { background-position: 12% 10%, 88% 90%; }
+  100% { background-position: 0% 0%, 100% 100%; }
+}
+.section--hero::before {
+  background-size: 180% 180%, 180% 180%;
+  animation: heroDrift 22s ease-in-out infinite;
+}
+.profile-image-wrap { animation: heroIn 0.8s ease both; }
+.profile-image,
+.profile-placeholder { animation: heroFloat 6.5s ease-in-out infinite; }
+.hero-text > * { opacity: 0; animation: heroIn 0.7s ease forwards; }
+.hero-overline      { animation-delay: 0.05s; }
+.profile-name       { animation-delay: 0.15s; }
+.profile-affiliation{ animation-delay: 0.25s; }
+.hero-statement     { animation-delay: 0.35s; }
+.hero-highlights    { animation-delay: 0.45s; }
+.profile-links      { animation-delay: 0.55s; }
+
 /* スクロールヒント */
 .scroll-hint {
   display: flex;
@@ -997,7 +1026,18 @@ ul  { list-style: none; }
   }
   .scroll-hint svg,
   .lightbox { transition: none !important; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; }
+  /* ヒーロー演出を無効化し即表示 */
+  .hero-text > *,
+  .profile-image-wrap { opacity: 1 !important; }
+  .hero-text > *,
+  .profile-image,
+  .profile-placeholder,
+  .profile-image-wrap,
+  .section--hero::before { animation: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* ===== レスポンシブ（タブレット） ===== */
