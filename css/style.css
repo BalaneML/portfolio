@@ -247,12 +247,12 @@ ul  { list-style: none; }
 }
 
 /* テキスト */
-.hero-label {
-  font-size: 0.75rem;
+.hero-overline {
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9rem;
 }
 .profile-name {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
@@ -261,20 +261,57 @@ ul  { list-style: none; }
   line-height: 1.15;
   margin-bottom: 0.5rem;
 }
+.profile-name .name-en {
+  display: inline-block;
+  font-size: 0.4em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
 .profile-affiliation {
   color: var(--muted);
   font-size: 0.9rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
-.profile-tagline {
-  font-size: 1.05rem;
+.hero-statement {
+  font-size: 1.15rem;
   font-weight: 300;
   line-height: 1.7;
   color: var(--text);
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--accent-teal);
   padding-left: 1rem;
   margin-bottom: 1.75rem;
-  max-width: 480px;
+  max-width: 520px;
+}
+.hero-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+  max-width: 560px;
+}
+.hero-highlights li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.hl-key {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border: 1px solid rgba(139, 124, 246, 0.3);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  min-width: 3.2rem;
+  text-align: center;
 }
 .profile-links {
   display: flex;
@@ -935,7 +972,8 @@ ul  { list-style: none; }
     text-align: center;
     gap: 1.75rem;
   }
-  .profile-tagline { text-align: left; }
+  .hero-statement { text-align: left; }
+  .hero-highlights { text-align: left; margin-left: auto; margin-right: auto; }
   .profile-links { justify-content: center; }
   .profile-image,
   .profile-placeholder { width: 130px; height: 130px; }
