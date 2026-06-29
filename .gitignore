@@ -5,3 +5,5 @@ images/*
 !images/cover.jpg
 # 作品画像は公開する（仮置き／作品スクショ・図など。個人写真は置かないこと）
 !images/works/
+# 研究の図解は公開する（模式図・概念図など。個人写真は置かないこと）
+!images/research/

@@ -54,7 +54,7 @@
   function initFadeIn() {
     const targets = document.querySelectorAll(
       '.section-header, .timeline-item, .vision-card, ' +
-      '.research-card, .tool-card, .skill-bar, ' +
+      '.research-card, .research-figure, .tool-card, .skill-bar, ' +
       '.hobby-card, .edu-item, .pub-item, .work-card'
     );
 
