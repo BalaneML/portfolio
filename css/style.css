@@ -659,14 +659,45 @@ ul  { list-style: none; }
   margin: 0 0 2.5rem;
   text-align: center;
 }
-.research-figure img {
+.research-figure img,
+.research-figure svg {
+  display: block;
   width: 100%;
   max-width: 560px;
+  height: auto;
   margin: 0 auto;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg2);
 }
+
+/* D. 研究パイプライン図の順次表示（JS主導時のみ。低減/非対応時は既定で全表示） */
+.research-figure svg .dgm-stage,
+.research-figure svg .dgm-arrow { opacity: 1; }
+.research-figure.fade-in svg .dgm-stage { opacity: 0; }
+.research-figure.fade-in svg .dgm-arrow {
+  opacity: 0;
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+}
+.research-figure.fade-in.visible svg .dgm-stage {
+  animation: dgmStageIn 0.5s ease forwards;
+}
+.research-figure.fade-in.visible svg .dgm-arrow {
+  animation: dgmArrowIn 0.4s ease forwards;
+}
+@keyframes dgmStageIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dgmArrowIn {
+  from { opacity: 0; stroke-dashoffset: 26; }
+  to   { opacity: 1; stroke-dashoffset: 0; }
+}
+.research-figure.fade-in.visible svg .dgm-s1 { animation-delay: 0.05s; }
+.research-figure.fade-in.visible svg .dgm-a1 { animation-delay: 0.30s; }
+.research-figure.fade-in.visible svg .dgm-s2 { animation-delay: 0.45s; }
+.research-figure.fade-in.visible svg .dgm-a2 { animation-delay: 0.75s; }
+.research-figure.fade-in.visible svg .dgm-s3 { animation-delay: 0.90s; }
+.research-figure.fade-in.visible svg .dgm-a3 { animation-delay: 1.15s; }
+.research-figure.fade-in.visible svg .dgm-s4 { animation-delay: 1.30s; }
 .research-figure figcaption {
   font-size: 0.78rem;
   color: var(--muted);
