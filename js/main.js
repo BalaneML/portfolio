@@ -55,7 +55,7 @@
     const targets = document.querySelectorAll(
       '.section-header, .timeline-item, .vision-card, ' +
       '.research-card, .research-figure, .tool-card, .skill-bar, ' +
-      '.hobby-card, .edu-item, .pub-item, .work-card'
+      '.hobby-card, .edu-item, .pub-item, .work-card, .gallery-item'
     );
 
     targets.forEach(function (el) {
@@ -104,6 +104,53 @@
     });
   }
 
+  // ===== フォトギャラリー ライトボックス =====
+  function initLightbox() {
+    const items = document.querySelectorAll('.gallery-item img');
+    if (items.length === 0) return;
+
+    // オーバーレイを生成
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.innerHTML =
+      '<button class="lightbox-close" aria-label="閉じる">&times;</button>' +
+      '<img alt="">' +
+      '<p class="lightbox-caption"></p>';
+    document.body.appendChild(box);
+
+    const boxImg     = box.querySelector('img');
+    const boxCaption = box.querySelector('.lightbox-caption');
+    const closeBtn   = box.querySelector('.lightbox-close');
+
+    function open(src, alt, caption) {
+      boxImg.src = src;
+      boxImg.alt = alt;
+      boxCaption.textContent = caption;
+      box.classList.add('open');
+    }
+    function close() {
+      box.classList.remove('open');
+    }
+
+    items.forEach(function (img) {
+      img.addEventListener('click', function () {
+        const fig = img.closest('.gallery-item');
+        const cap = fig ? fig.querySelector('figcaption') : null;
+        open(img.src, img.alt, cap ? cap.textContent : '');
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    box.addEventListener('click', function (e) {
+      if (e.target === box) close(); // 背景クリックで閉じる
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  }
+
   // ===== 初期化 =====
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // 初回実行
@@ -112,4 +159,5 @@
     initFadeIn();
     initSkillBars();
   }
+  initLightbox();
 })();
