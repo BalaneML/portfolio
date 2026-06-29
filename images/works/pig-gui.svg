@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="仮置き画像：豚の交配行動検出システムのGUI">
+  <rect width="800" height="600" fill="#14142a"/>
+  <rect x="6" y="6" width="788" height="588" rx="12" fill="none" stroke="#2a2a40" stroke-width="2" stroke-dasharray="10 8"/>
+  <g transform="translate(400,210)" stroke="#3a3a5a" stroke-width="4" fill="none">
+    <rect x="-66" y="-50" width="132" height="100" rx="10"/>
+    <circle cx="-30" cy="-20" r="12" fill="#3a3a5a" stroke="none"/>
+    <polyline points="-64,44 -16,-2 14,28 34,10 64,44"/>
+  </g>
+  <g text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif">
+    <text x="400" y="330" font-size="22" fill="#8b7cf6" font-weight="700">仮置き画像 / PLACEHOLDER</text>
+    <text x="400" y="372" font-size="24" fill="#e4e4f0">豚の交配行動検出システム — GUI画面</text>
+    <text x="400" y="410" font-size="16" fill="#7878a0">images/works/pig-gui.(png/jpg) に差し替えてください</text>
+    <text x="400" y="438" font-size="14" fill="#7878a0">推奨サイズ: 800×600px 程度（横長 4:3）</text>
+  </g>
+</svg>

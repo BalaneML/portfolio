@@ -3,3 +3,5 @@
 # 個人写真は公開しない（プロフィール画像 cover.jpg のみ公開）
 images/*
 !images/cover.jpg
+# 作品画像は公開する（仮置き／作品スクショ・図など。個人写真は置かないこと）
+!images/works/

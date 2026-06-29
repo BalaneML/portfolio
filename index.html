@@ -24,6 +24,7 @@
           <li><a href="#profile"  class="nav-link">プロフィール</a></li>
           <li><a href="#career"   class="nav-link">キャリア</a></li>
           <li><a href="#research" class="nav-link">研究</a></li>
+          <li><a href="#works"    class="nav-link">作品</a></li>
           <li><a href="#skills"   class="nav-link">スキル</a></li>
           <li><a href="#life"     class="nav-link">私生活</a></li>
         </ul>
@@ -207,7 +208,97 @@
       </div>
     </section>
 
-    <!-- ========== 4. スキル・実績 ========== -->
+    <!-- ========== 4. 作品・プロジェクト ========== -->
+    <section id="works" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">作品・プロジェクト</h2>
+          <p class="section-sub">自分の手で作りきったもの</p>
+        </header>
+
+        <div class="work-list">
+
+          <!-- プロジェクト 1 -->
+          <article class="work-card">
+            <div class="work-media">
+              <div class="work-shots two">
+                <figure class="work-shot">
+                  <img src="images/works/pig-gui.svg" alt="豚の交配行動検出システムのGUI画面（仮置き）" loading="lazy">
+                  <figcaption>GUI画面</figcaption>
+                </figure>
+                <figure class="work-shot">
+                  <img src="images/works/pig-diagram.svg" alt="豚の交配行動検出システムのシステム構成図（仮置き）" loading="lazy">
+                  <figcaption>システム構成図</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="work-badges">
+                <span class="work-badge">研究・共同研究</span>
+                <span class="work-badge">2024–2026</span>
+              </div>
+              <h3 class="work-title">物体検出モデルを用いた豚の交配行動 自動検出システム</h3>
+              <p class="work-role">立ち上げ・実装・評価を主導（他学部との共同研究）</p>
+              <p class="work-desc">
+                畜産現場での交配タイミングの見極めを支援するため、物体検出モデル（YOLO）で豚の交配行動を映像から自動検出するシステムを開発。
+                テーマの立ち上げからデータ整備・モデル実装・評価、現場で使えるGUIの構築までを一貫して主体的に進めました。
+              </p>
+              <ul class="tag-list work-tags">
+                <li class="tag">Python</li>
+                <li class="tag">YOLO / 物体検出</li>
+                <li class="tag">GUI 開発</li>
+                <li class="tag">画像処理</li>
+              </ul>
+              <!-- リンクがあれば下を有効化してください
+              <div class="profile-links work-links">
+                <a href="[TODO: URL]" class="btn-link" target="_blank" rel="noopener">GitHub</a>
+                <a href="[TODO: URL]" class="btn-link" target="_blank" rel="noopener">デモ動画</a>
+              </div>
+              -->
+            </div>
+          </article>
+
+          <!-- プロジェクト 2 -->
+          <article class="work-card">
+            <div class="work-media">
+              <div class="work-shots">
+                <figure class="work-shot">
+                  <img src="images/works/shooting-game.svg" alt="2D対戦シューティングのゲーム画面（仮置き）" loading="lazy">
+                  <figcaption>ゲーム画面</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="work-body">
+              <div class="work-badges">
+                <span class="work-badge">ものづくり</span>
+                <span class="work-badge">受賞</span>
+                <span class="work-badge">2021–2024</span>
+              </div>
+              <h3 class="work-title">C言語 × SDL による 2D対戦シューティング</h3>
+              <p class="work-role">専門学校在学中の制作</p>
+              <p class="work-desc">
+                C言語とSDLライブラリで2人対戦型の2Dシューティングをゼロから制作。
+                描画・入力・当たり判定・ゲームループといった低レイヤーの仕組みを自分の手で組み上げ、コンテストで受賞しました。
+                <span class="work-todo">［TODO: コンテスト名・賞の名称・受賞年を記入］</span>
+              </p>
+              <ul class="tag-list work-tags">
+                <li class="tag">C言語</li>
+                <li class="tag">SDL</li>
+                <li class="tag">ゲーム開発</li>
+              </ul>
+              <!-- リンクがあれば下を有効化してください
+              <div class="profile-links work-links">
+                <a href="[TODO: URL]" class="btn-link" target="_blank" rel="noopener">GitHub</a>
+              </div>
+              -->
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. スキル・実績 ========== -->
     <section id="skills" class="section section--alt">
       <div class="container">
         <header class="section-header">
@@ -314,7 +405,7 @@
       </div>
     </section>
 
-    <!-- ========== 5. 私生活・趣味 ========== -->
+    <!-- ========== 6. 私生活・趣味 ========== -->
     <section id="life" class="section">
       <div class="container">
         <header class="section-header">

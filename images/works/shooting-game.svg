@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="仮置き画像：2D対戦シューティングのゲーム画面">
+  <rect width="800" height="600" fill="#14142a"/>
+  <rect x="6" y="6" width="788" height="588" rx="12" fill="none" stroke="#2a2a40" stroke-width="2" stroke-dasharray="10 8"/>
+  <g transform="translate(400,205)" fill="#3a3a5a">
+    <polygon points="-40,30 0,-40 40,30 0,12"/>
+    <rect x="-6" y="30" width="12" height="26" rx="3"/>
+    <circle cx="-70" cy="-30" r="4"/>
+    <circle cx="64" cy="-12" r="3"/>
+    <circle cx="48" cy="-44" r="5"/>
+    <circle cx="-54" cy="6" r="3"/>
+  </g>
+  <g text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif">
+    <text x="400" y="330" font-size="22" fill="#e6c87a" font-weight="700">仮置き画像 / PLACEHOLDER</text>
+    <text x="400" y="372" font-size="24" fill="#e4e4f0">2D対戦シューティング — ゲーム画面</text>
+    <text x="400" y="410" font-size="16" fill="#7878a0">images/works/shooting-game.(png/jpg/gif) に差し替えてください</text>
+    <text x="400" y="438" font-size="14" fill="#7878a0">推奨サイズ: 800×600px 程度（GIFなら実機プレイ動画も可）</text>
+  </g>
+</svg>

@@ -55,7 +55,7 @@
     const targets = document.querySelectorAll(
       '.section-header, .timeline-item, .vision-card, ' +
       '.research-card, .tool-card, .skill-bar, ' +
-      '.hobby-card, .edu-item, .pub-item'
+      '.hobby-card, .edu-item, .pub-item, .work-card'
     );
 
     targets.forEach(function (el) {

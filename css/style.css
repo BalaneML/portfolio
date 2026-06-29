@@ -468,7 +468,72 @@ ul  { list-style: none; }
   line-height: 1.7;
 }
 
-/* ===== 4. スキル・実績 ===== */
+/* ===== 4. 作品・プロジェクト ===== */
+.work-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.work-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--ease), transform var(--ease);
+}
+.work-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.work-shots { display: grid; gap: 0.7rem; }
+.work-shots.two { grid-template-columns: 1fr 1fr; }
+.work-shot {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+.work-shot img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.work-shot figcaption {
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding: 0.35rem 0.6rem;
+  border-top: 1px solid var(--border);
+}
+.work-body { display: flex; flex-direction: column; min-width: 0; }
+.work-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.65rem; }
+.work-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(78, 205, 196, 0.25);
+  color: var(--accent-teal);
+}
+.work-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+.work-role { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.7rem; }
+.work-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 0.9rem;
+}
+.work-todo {
+  display: inline-block;
+  font-size: 0.76rem;
+  color: var(--accent-gold);
+}
+.work-tags { margin-top: auto; }
+.work-links { margin-top: 0.9rem; }
+
+/* ===== 5. スキル・実績 ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -650,6 +715,7 @@ ul  { list-style: none; }
   .tool-cards  { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; gap: 0; }
   .hobby-cards { grid-template-columns: 1fr; }
+  .work-card   { grid-template-columns: 1fr; gap: 1.25rem; }
 
   .col-heading:first-child { margin-top: 0; }
 
