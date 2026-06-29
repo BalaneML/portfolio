@@ -99,6 +99,26 @@
     });
   }
 
+  // ===== C. キャリア年表の縦線を伸ばす =====
+  function initTimeline() {
+    const timeline = document.querySelector('.timeline');
+    if (!timeline || reduceMotion || !('IntersectionObserver' in window)) return;
+
+    timeline.classList.add('tl-pending');
+    const obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            timeline.classList.add('tl-grow');
+            obs.unobserve(timeline);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(timeline);
+  }
+
   // ===== スキルバーアニメーション =====
   function initSkillBars() {
     const fills = document.querySelectorAll('.skill-bar-fill');
@@ -181,6 +201,7 @@
   if ('IntersectionObserver' in window) {
     initFadeIn();
     initSkillBars();
+    initTimeline();
   } else {
     // IntersectionObserver 非対応：アニメに頼らず全要素を表示状態にする
     document.querySelectorAll('.skill-bar-fill').forEach(function (fill) {
