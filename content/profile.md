@@ -12,8 +12,7 @@
 
 ## SNS・リンク
 - GitHub: https://github.com/BalaneML
-- Twitter/X: [TODO: URL（不要なら削除）]
-- その他: [TODO: URL（不要なら削除）]
+- Twitter/X: https://x.com/Balane110072
 
 ## プロフィール画像
 → images/cover.jpg に配置してください（推奨サイズ: 400×400px 以上、正方形）
