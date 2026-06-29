@@ -364,11 +364,14 @@ ul  { list-style: none; }
   border-radius: 999px;
   font-size: 0.82rem;
   color: var(--muted);
-  transition: color var(--ease), border-color var(--ease);
+  transition: color var(--ease), border-color var(--ease),
+              background var(--ease), transform var(--ease);
 }
 .btn-link:hover {
   color: var(--accent);
   border-color: var(--accent);
+  background: rgba(139, 124, 246, 0.1);
+  transform: translateY(-2px);
   opacity: 1;
 }
 
@@ -994,7 +997,9 @@ ul  { list-style: none; }
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.gallery-item:hover img { transform: scale(1.06); }
 .gallery-item figcaption {
   font-size: 0.78rem;
   color: var(--muted);
@@ -1051,6 +1056,20 @@ ul  { list-style: none; }
   cursor: pointer;
 }
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* ===== E. 微細なホバー演出（カードの浮き＝影） ===== */
+.tool-card,
+.hobby-card,
+.work-card,
+.gallery-item {
+  transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+}
+.tool-card:hover,
+.hobby-card:hover,
+.work-card:hover,
+.gallery-item:hover {
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.6);
+}
 
 /* ===== フッター ===== */
 .footer {
