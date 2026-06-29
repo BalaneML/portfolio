@@ -14,7 +14,10 @@
   --text:    #e4e4f0;
   --muted:   #7878a0;
 
-  /* アクセントカラー */
+  /* アクセントカラー（配色規律：色に意味を割り当てる）
+     - 紫  (--accent)      : 構造（ナビ/リンク/タグ）＋ 自分の歩み・実績（Career / Skills）
+     - ティール(--accent-teal): 研究・技術（Research / Works）
+     - ゴールド(--accent-gold) : 私生活（Life）＋ 未記入TODOの注意色 */
   --accent:       #8b7cf6;   /* インディゴ */
   --accent-teal:  #4ecdc4;   /* ティール */
   --accent-gold:  #e6c87a;   /* ゴールド */
@@ -176,6 +179,18 @@ ul  { list-style: none; }
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.05em;
 }
+/* 配色規律：セクションのテーマ色（紫=歩み/実績・ティール=研究/技術・ゴールド=私生活） */
+#career .section-eyebrow,
+#skills .section-eyebrow { color: var(--accent); }
+#research .section-eyebrow,
+#works .section-eyebrow { color: var(--accent-teal); }
+#life .section-eyebrow { color: var(--accent-gold); }
+
+#career .section-title::after,
+#skills .section-title::after { background: var(--accent); }
+#research .section-title::after,
+#works .section-title::after { background: var(--accent-teal); }
+#life .section-title::after { background: var(--accent-gold); }
 .section-title {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 700;
