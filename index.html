@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>横山 順 | Portfolio — 生成AIで社会のデータ課題に挑む</title>
   <meta name="description" content="生成AIを用いた人口合成を研究する大学院生のデジタルポートフォリオ。専門学校から大学編入・大学院進学を経て、理論と実装の往復でデータ駆動の価値創造を目指す。">
+  <meta name="author" content="横山 順 (Jun Yokoyama)">
+  <meta name="theme-color" content="#0e0e16">
+
+  <!-- 公開URL（GitHub Pages）。デプロイ後、実際のURLに合わせて確認してください -->
+  <link rel="canonical" href="https://balaneml.github.io/MyPortfolio/">
+
+  <!-- OGP / Twitterカード：SNS・チャットでURLを共有したときのプレビュー -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="横山 順 | Portfolio — 生成AIで社会のデータ課題に挑む">
+  <meta property="og:description" content="生成AIによる合成人口の生活行動データ生成を研究。プライバシーを保ったまま、社会のデータ制約を解くことを目指す大学院生のポートフォリオ。">
+  <meta property="og:url" content="https://balaneml.github.io/MyPortfolio/">
+  <!-- og:image はデプロイ後の絶対URLに差し替えてください（相対パスだと一部SNSでプレビューされません） -->
+  <meta property="og:image" content="https://balaneml.github.io/MyPortfolio/images/cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="横山 順 | Portfolio">
+  <meta name="twitter:description" content="生成AIによる合成人口の生活行動データ生成を研究する大学院生のポートフォリオ。">
+
+  <!-- favicon：外部ファイル不要のインラインSVG（研究テーマ色の "J"） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0e16'/%3E%3Ctext x='32' y='46' font-size='40' font-family='Inter,Helvetica,Arial,sans-serif' font-weight='700' text-anchor='middle' fill='%238b7cf6'%3EJ%3C/text%3E%3C/svg%3E">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +33,16 @@
 </head>
 <body>
 
+  <!-- 本文へスキップ（キーボード操作・スクリーンリーダー用。フォーカス時のみ表示） -->
+  <a href="#main" class="skip-link">本文へスキップ</a>
+
   <!-- スクロール進捗バー -->
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ナビゲーション -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#profile" class="nav-logo">Jun&nbsp;Yokoyama</a>
+      <a href="#profile" class="nav-logo" lang="en">Jun&nbsp;Yokoyama</a>
       <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -35,7 +59,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ========== 1. プロフィール ========== -->
     <section id="profile" class="section section--hero">
@@ -50,13 +74,13 @@
               onerror="this.parentElement.querySelector('.profile-placeholder').style.display='flex'; this.style.display='none';"
             >
             <div class="profile-placeholder" aria-hidden="true">
-              <span>Photo</span>
+              <span class="ph-monogram">順</span>
             </div>
           </div>
 
           <div class="hero-text">
             <p class="hero-overline">Research Portfolio</p>
-            <h1 class="profile-name">横山 順 <span class="name-en">Jun&nbsp;Yokoyama</span></h1>
+            <h1 class="profile-name">横山 順 <span class="name-en" lang="en">Jun&nbsp;Yokoyama</span></h1>
             <p class="profile-affiliation">大阪大学大学院 情報科学研究科 マルチメディア工学専攻 データ生成工学講座 ／ 修士1年</p>
             <p class="hero-statement">
               生成AIで「合成人口の生活行動」を扱う研究者。<br>
@@ -64,7 +88,7 @@
             </p>
             <ul class="hero-highlights">
               <li><span class="hl-key">研究</span><span>生成AIによる合成人口の生活行動データ生成</span></li>
-              <li><span class="hl-key">強み</span><span>論文の理論を精読し、自分の手で実装・検証する往復</span></li>
+              <li><span class="hl-key">強み</span><span>白紙から自らテーマを立て、実装・評価まで走りきる主体性</span></li>
               <li><span class="hl-key">志向</span><span>研究の価値を社会・コミュニティへ還元する</span></li>
             </ul>
             <div class="profile-links">
@@ -128,10 +152,10 @@
             <div class="timeline-dot timeline-dot--now"></div>
             <div class="timeline-body">
               <span class="timeline-badge timeline-badge--now">現在</span>
-              <h3 class="timeline-heading">大阪大学大学院で、合成人口データの生活行動データ生成を研究</h3>
+              <h3 class="timeline-heading">大阪大学大学院で、合成人口の生活行動データ生成を研究</h3>
               <p>
-                現在は大阪大学大学院で、深層学習を用いた「合成人口データにおける生活行動データ生成」をテーマに研究しています。
-                VAE・GAN・CTGAN・TVAEといった深層生成モデルを、論文の理論を精読したうえでPyTorchやNumPyで自ら実装し、その挙動を一つ一つ検証。
+                現在は大阪大学大学院で、深層学習を用いた「合成人口の生活行動データ生成」をテーマに研究しています。
+                VAE・GAN・CTGAN・TVAEといった深層生成モデルを、PyTorchやNumPyで自ら実装し、その挙動を一つ一つ検証。
                 プライバシーを保護しながら、現実の人々の生活行動を統計的に妥当に再現することに挑んでいます。
               </p>
               <p>
@@ -209,7 +233,7 @@
             </ol>
             <p>
               これらを日本の公的データに根ざして検証し、プライバシーと妥当性を両立させます。
-              手法面では VAE 等の深層生成モデルと IPF 等の統計手法の組み合わせを基盤に、理論を精読して自前実装・検証しています。
+              手法面では VAE 等の深層生成モデルと IPF 等の統計手法の組み合わせを基盤に、自前で実装して挙動まで検証しています。
             </p>
           </div>
 
@@ -277,7 +301,7 @@
           <div class="research-block research-block--first">
             <h4 class="research-sublabel">現在の進捗</h4>
             <p>
-              深層生成モデル（VAE / GAN / CTGAN / TVAE）と統計手法（IPF）を、論文の理論を精読したうえで PyTorch / NumPy で自前実装し、挙動を検証中です。評価設計と日本データでの検証はこれからのフェーズです。
+              深層生成モデル（VAE / GAN / CTGAN / TVAE）と統計手法（IPF）を PyTorch / NumPy で自前実装し、挙動を検証中です。評価設計と日本データでの検証はこれからのフェーズです。
             </p>
             <p class="research-todo">▸ 結果・知見：[TODO — 予備実験の結果が出たらここに追記]</p>
           </div>
@@ -359,7 +383,7 @@
             <div class="tool-card">
               <span class="tool-icon" aria-hidden="true">📚</span>
               <h4>深層生成モデル（VAE / GAN / CTGAN / TVAE）</h4>
-              <p>論文の理論を精読したうえで、連続値の多峰性正規化やカテゴリ変数の不均衡といった表形式データ特有の課題まで踏み込んで理解し、実装に反映しています。</p>
+              <p>連続値の多峰性正規化やカテゴリ変数の不均衡といった、表形式データ特有の課題まで踏み込んで理解し、実装に反映しています。</p>
             </div>
             <div class="tool-card">
               <span class="tool-icon" aria-hidden="true">💻</span>
@@ -577,7 +601,7 @@
           <h3 class="col-heading">業績・発表</h3>
           <ul class="pub-list">
             <li class="pub-item">
-              <strong class="pub-year">2025</strong>「物体検知モデルを用いた豚の交配行動検知システム」NLP若手の会 第20回シンポジウム（YANS 2025）／ ポスター発表<span class="pub-affil">学部・徳島大学での研究</span>
+              <strong class="pub-year">2025</strong>「物体検出モデルを用いた豚の交配行動検出システム」NLP若手の会 第20回シンポジウム（YANS 2025）／ ポスター発表<span class="pub-affil">学部・徳島大学での研究</span>
             </li>
             <!-- 今後の発表・論文はこの形式で追加してください
             <li class="pub-item"><strong class="pub-year">2026</strong>「論文タイトル」学会名／口頭・ポスター</li>
