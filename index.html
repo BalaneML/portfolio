@@ -324,32 +324,14 @@
         <div class="research-card">
           <div class="research-block research-block--first">
             <h4 class="research-sublabel">関心領域 — Research Interests</h4>
-            <div class="interests">
-              <div class="interest-item">
-                <h5>合成データ・合成人口 <span>Synthetic Data &amp; Population Synthesis</span></h5>
-                <p>プライバシーを保ちながら、実データの統計的性質を再現する</p>
-              </div>
-              <div class="interest-item">
-                <h5>深層生成モデル <span>Deep Generative Models</span></h5>
-                <p>VAE・GAN・拡散モデルなど、表形式・系列データ向けの生成手法</p>
-              </div>
-              <div class="interest-item">
-                <h5>人の生活行動モデリング <span>Human Activity &amp; Time-use Modeling</span></h5>
-                <p>「いつ・何をするか」— 一日の活動スケジュールの生成</p>
-              </div>
-              <div class="interest-item">
-                <h5>集計からの弱教師学習 <span>Aggregate Supervision</span></h5>
-                <p>個人データに頼らず、公開された集計統計から学ぶ</p>
-              </div>
-              <div class="interest-item">
-                <h5>ドメイン適応・転移学習 <span>Domain Adaptation</span></h5>
-                <p>国・地域をまたいで、行動データの構造を転移する</p>
-              </div>
-              <div class="interest-item">
-                <h5>生成データの評価とプライバシー <span>Evaluation &amp; Privacy</span></h5>
-                <p>feasibility・分布適合・微分プライバシーによる、品質と安全性の担保</p>
-              </div>
-            </div>
+            <ul class="tag-list interest-tags">
+              <li class="tag">合成データ・合成人口</li>
+              <li class="tag">深層生成モデル</li>
+              <li class="tag">人の生活行動モデリング</li>
+              <li class="tag">集計からの弱教師学習</li>
+              <li class="tag">ドメイン適応・転移学習</li>
+              <li class="tag">生成データの評価とプライバシー</li>
+            </ul>
           </div>
 
           <div class="research-block">
@@ -375,22 +357,19 @@
         </div>
 
         <div class="tools-section">
-          <h3 class="tools-label">研究スタイル・使用ツール</h3>
+          <h3 class="tools-label">使用ツール</h3>
           <div class="tool-cards">
             <div class="tool-card">
               <span class="tool-icon" aria-hidden="true">📚</span>
               <h4>深層生成モデル（VAE / GAN / CTGAN / TVAE）</h4>
-              <p>連続値の多峰性正規化やカテゴリ変数の不均衡といった、表形式データ特有の課題まで踏み込んで理解し、実装に反映しています。</p>
             </div>
             <div class="tool-card">
               <span class="tool-icon" aria-hidden="true">💻</span>
               <h4>Python / PyTorch / NumPy</h4>
-              <p>モデルを自分の手で実装し、その挙動を一つ一つ検証。「動くこと」だけでなく「なぜそう動くのか」を確かめながら研究を進めています。</p>
             </div>
             <div class="tool-card">
               <span class="tool-icon" aria-hidden="true">🔬</span>
               <h4>統計手法 × 実データ（IPF / パーソントリップ調査）</h4>
-              <p>機械学習の理論・統計手法・ドメイン知識を統合し、実際の活動データと組み合わせることで、生成データの妥当性とプライバシー保護を両立させます。</p>
             </div>
           </div>
         </div>
