@@ -52,6 +52,12 @@
       }
     });
 
+    // ページ最下部付近では、高さの低い最終セクションでも確実にアクティブにする
+    const doc = document.documentElement;
+    if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) {
+      current = sections[sections.length - 1].id;
+    }
+
     navLinks.forEach(function (link) {
       const isActive = link.getAttribute('href') === '#' + current;
       link.classList.toggle('active', isActive);
@@ -157,6 +163,7 @@
     box.className = 'lightbox';
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', '写真の拡大表示');
     box.innerHTML =
       '<button class="lightbox-close" aria-label="閉じる">&times;</button>' +
       '<img alt="">' +
@@ -166,22 +173,43 @@
     const boxImg     = box.querySelector('img');
     const boxCaption = box.querySelector('.lightbox-caption');
     const closeBtn   = box.querySelector('.lightbox-close');
+    let lastFocused  = null; // 開く前のフォーカス位置（閉じたら戻す）
 
-    function open(src, alt, caption) {
+    function open(src, alt, caption, trigger) {
+      lastFocused = trigger || null;
       boxImg.src = src;
       boxImg.alt = alt;
       boxCaption.textContent = caption;
       box.classList.add('open');
+      closeBtn.focus(); // 開いたらフォーカスをモーダル内へ移す
     }
     function close() {
+      if (!box.classList.contains('open')) return;
       box.classList.remove('open');
+      // フォーカスを開く前の要素へ戻す（キーボード操作の文脈を保つ）
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+      lastFocused = null;
     }
 
     items.forEach(function (img) {
-      img.addEventListener('click', function () {
-        const fig = img.closest('.gallery-item');
-        const cap = fig ? fig.querySelector('figcaption') : null;
-        open(img.src, img.alt, cap ? cap.textContent : '');
+      // クリックだけでなくキーボードでも開けるよう、操作可能な要素にする
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', (img.alt || '写真') + 'を拡大表示');
+
+      const fig = img.closest('.gallery-item');
+      const cap = fig ? fig.querySelector('figcaption') : null;
+      const capText = cap ? cap.textContent : '';
+
+      function trigger() { open(img.src, img.alt, capText, img); }
+      img.addEventListener('click', trigger);
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault(); // スペースでのスクロールを抑止
+          trigger();
+        }
       });
     });
 
@@ -190,7 +218,14 @@
       if (e.target === box) close(); // 背景クリックで閉じる
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') close();
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        close();
+      } else if (e.key === 'Tab') {
+        // モーダル内にフォーカスを閉じ込める（操作可能要素は閉じるボタンのみ）
+        e.preventDefault();
+        closeBtn.focus();
+      }
     });
   }
 
