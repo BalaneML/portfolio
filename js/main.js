@@ -92,12 +92,14 @@
             // よう上限を設け、内容が長く空白に見えるのを防ぐ。
             setTimeout(function () {
               entry.target.classList.add('visible');
-            }, Math.min(i, 6) * 55);
+            }, Math.min(i, 4) * 45);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12 }
+      // ビューポート下端の少し手前で発火させ、要素が画面に入る頃には
+      // ほぼ表示し終えているようにする（スクロール中の大きな空白を防ぐ）。
+      { threshold: 0, rootMargin: '0px 0px 12% 0px' }
     );
 
     targets.forEach(function (el) {

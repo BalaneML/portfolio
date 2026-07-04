@@ -12,7 +12,8 @@
 
   /* テキスト */
   --text:    #e4e4f0;
-  --muted:   #7878a0;
+  --text-2:  #9a9ac4;   /* 本文用（--mutedより明るく、暗背景でもWCAG AAを確保） */
+  --muted:   #7878a0;   /* ラベル・補助・キャプションなど小さな補足専用 */
 
   /* アクセントカラー（配色規律：色に意味を割り当てる）
      - 紫  (--accent)      : 構造（ナビ/リンク/タグ）＋ 自分の歩み・実績（Career / Skills）
@@ -154,7 +155,7 @@ ul  { list-style: none; }
 
 /* ===== セクション 共通 ===== */
 .section {
-  padding: 6rem 0;
+  padding: 4.5rem 0;
 }
 .section--alt {
   background: var(--bg2);
@@ -223,7 +224,7 @@ ul  { list-style: none; }
 
 /* ===== 1. プロフィール（ヒーロー） ===== */
 .section--hero {
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -343,7 +344,7 @@ ul  { list-style: none; }
   align-items: baseline;
   gap: 0.75rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.6;
 }
 .hl-key {
@@ -522,7 +523,7 @@ ul  { list-style: none; }
 }
 .timeline-body p {
   font-size: 0.925rem;
-  color: var(--muted);
+  color: var(--text-2);
   max-width: 600px;
 }
 
@@ -543,10 +544,49 @@ ul  { list-style: none; }
 }
 .vision-card p {
   font-size: 0.925rem;
-  color: var(--muted);
+  color: var(--text-2);
 }
 
 /* ===== 3. 研究 ===== */
+/* 研究の核を10秒で掴める「3行まとめ」（流し読み設計） */
+.research-tldr {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.06), rgba(139, 124, 246, 0.05));
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-teal);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.9rem;
+  margin-bottom: 2.5rem;
+}
+.research-tldr-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  margin-bottom: 1.1rem;
+}
+.research-tldr-points {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.research-tldr-points li {
+  padding-top: 0.85rem;
+  border-top: 2px solid var(--accent-teal);
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+.tldr-key {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
 .research-card {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -562,7 +602,7 @@ ul  { list-style: none; }
 }
 .research-card p {
   font-size: 0.925rem;
-  color: var(--muted);
+  color: var(--text-2);
   margin-bottom: 0.75rem;
 }
 .research-card p:last-child { margin-bottom: 0; }
@@ -594,7 +634,7 @@ ul  { list-style: none; }
   position: relative;
   padding-left: 1.7rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.7;
 }
 .research-steps li::before {
@@ -619,7 +659,7 @@ ul  { list-style: none; }
   position: relative;
   padding-left: 1.2rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.7;
 }
 .research-roadmap li::before {
@@ -726,7 +766,7 @@ ul  { list-style: none; }
 }
 .tool-card p {
   font-size: 0.83rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.7;
 }
 
@@ -783,7 +823,7 @@ ul  { list-style: none; }
 .work-role { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.7rem; }
 .work-desc {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.75;
   margin-bottom: 0.9rem;
 }
@@ -827,7 +867,7 @@ ul  { list-style: none; }
   min-width: 50px;
 }
 .edu-item strong { font-size: 0.93rem; display: block; margin-bottom: 0.15rem; }
-.edu-item p { font-size: 0.83rem; color: var(--muted); }
+.edu-item p { font-size: 0.83rem; color: var(--text-2); }
 
 /* タグ */
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -861,7 +901,7 @@ ul  { list-style: none; }
 .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
 .pub-item {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: var(--text-2);
   padding-left: 1.1rem;
   position: relative;
   line-height: 1.6;
@@ -903,7 +943,7 @@ ul  { list-style: none; }
 /* ===== 5. 私生活・趣味 ===== */
 .life-intro {
   font-size: 0.975rem;
-  color: var(--muted);
+  color: var(--text-2);
   max-width: 620px;
   line-height: 1.9;
   margin-bottom: 2.5rem;
@@ -937,7 +977,7 @@ ul  { list-style: none; }
 }
 .hobby-card p {
   font-size: 0.83rem;
-  color: var(--muted);
+  color: var(--text-2);
   line-height: 1.7;
 }
 
@@ -1139,6 +1179,7 @@ ul  { list-style: none; }
     --bg2: #ffffff;
     --bg3: #f4f4f8;
     --text: #14141c;
+    --text-2: #33334a;
     --muted: #555566;
     --border: #ccccd8;
   }
@@ -1201,6 +1242,8 @@ ul  { list-style: none; }
   .profile-placeholder { width: 130px; height: 130px; }
 
   /* グリッド → 縦並び */
+  .research-tldr-points { grid-template-columns: 1fr; gap: 1rem; }
+  .research-tldr-points li { padding-top: 0.7rem; }
   .tool-cards  { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; gap: 0; }
   .hobby-cards { grid-template-columns: 1fr; }
