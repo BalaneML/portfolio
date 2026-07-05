@@ -1,17 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="仮置き画像：豚の交配行動検出システムのシステム構成図">
-  <rect width="800" height="600" fill="#14142a"/>
-  <rect x="6" y="6" width="788" height="588" rx="12" fill="none" stroke="#2a2a40" stroke-width="2" stroke-dasharray="10 8"/>
-  <g transform="translate(400,205)" stroke="#3a3a5a" stroke-width="4" fill="none">
-    <rect x="-120" y="-26" width="70" height="52" rx="8"/>
-    <rect x="-35" y="-26" width="70" height="52" rx="8"/>
-    <rect x="50" y="-26" width="70" height="52" rx="8"/>
-    <line x1="-50" y1="0" x2="-35" y2="0"/>
-    <line x1="35" y1="0" x2="50" y2="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="610" viewBox="0 0 800 610" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" role="img" aria-label="Mounting Monitor のシステム構成図：IPカメラの映像をVideoThreadとDetector（YOLO）でリアルタイム検出し、SQLiteへの記録とEmail/Discord通知を行い、PyQt6のGUIで監視・設定・履歴閲覧する構成">
+  <defs>
+    <marker id="wd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="800" height="610" rx="14" fill="#ffffff"/>
+
+  <!-- title -->
+  <text x="400" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#1f2937">Mounting Monitor — システム構成</text>
+  <text x="400" y="70" text-anchor="middle" font-size="13" fill="#6b7280">リアルタイム豚・交配行動検出（YOLO × PyQt6 デスクトップアプリ）</text>
+
+  <!-- 1 input -->
+  <g>
+    <rect x="110" y="94" width="580" height="68" rx="12" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.5"/>
+    <text x="134" y="122" font-size="16" font-weight="700" fill="#0f766e">① 映像入力</text>
+    <text x="134" y="146" font-size="13" fill="#374151">IPカメラ（RTSP）/ Webカメラ  →  OpenCV でフレーム取得</text>
   </g>
-  <g text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif">
-    <text x="400" y="330" font-size="22" fill="#4ecdc4" font-weight="700">仮置き画像 / PLACEHOLDER</text>
-    <text x="400" y="372" font-size="24" fill="#e4e4f0">豚の交配行動検出システム — システム構成図</text>
-    <text x="400" y="410" font-size="16" fill="#7878a0">images/works/pig-diagram.(png/jpg/svg) に差し替えてください</text>
-    <text x="400" y="438" font-size="14" fill="#7878a0">推奨サイズ: 800×600px 程度</text>
+  <line x1="400" y1="162" x2="400" y2="186" stroke="#9ca3af" stroke-width="2" marker-end="url(#wd-arrow)"/>
+
+  <!-- 2 detection (core) -->
+  <g>
+    <rect x="110" y="190" width="580" height="92" rx="12" fill="#f5f3ff" stroke="#a78bfa" stroke-width="2"/>
+    <text x="134" y="218" font-size="16" font-weight="700" fill="#6d28d9">② リアルタイム検出（本システムの核）</text>
+    <text x="134" y="244" font-size="13" fill="#374151">VideoThread（QThread・非同期処理）＋ Detector</text>
+    <text x="134" y="266" font-size="13" fill="#b45309">YOLO（Ultralytics）で mounting behavior を検出</text>
   </g>
+
+  <!-- branch to storage / notification -->
+  <text x="412" y="304" font-size="12" fill="#9ca3af">検出イベント</text>
+  <path d="M400,282 L400,300 L230,300 L230,320" fill="none" stroke="#9ca3af" stroke-width="2" marker-end="url(#wd-arrow)"/>
+  <path d="M400,282 L400,300 L570,300 L570,320" fill="none" stroke="#9ca3af" stroke-width="2" marker-end="url(#wd-arrow)"/>
+
+  <!-- 3 storage -->
+  <g>
+    <rect x="72" y="322" width="316" height="86" rx="12" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.5"/>
+    <text x="96" y="352" font-size="15" font-weight="700" fill="#0f766e">③ 記録</text>
+    <text x="96" y="376" font-size="13" fill="#374151">SQLite データベース</text>
+    <text x="96" y="396" font-size="12" fill="#6b7280">検出ログ＋証跡画像を保存</text>
+  </g>
+  <!-- 4 notification -->
+  <g>
+    <rect x="412" y="322" width="316" height="86" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="436" y="352" font-size="15" font-weight="700" fill="#b45309">④ 通知</text>
+    <text x="436" y="376" font-size="13" fill="#374151">NotificationScheduler</text>
+    <text x="436" y="396" font-size="12" fill="#6b7280">Email（SMTP）/ Discord（Webhook）</text>
+  </g>
+
+  <!-- arrows converge to GUI -->
+  <path d="M230,408 L230,432 L400,432" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M570,408 L570,432 L400,432" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="400" y1="432" x2="400" y2="456" stroke="#9ca3af" stroke-width="2" marker-end="url(#wd-arrow)"/>
+
+  <!-- 5 GUI -->
+  <g>
+    <rect x="110" y="458" width="580" height="96" rx="12" fill="#f5f3ff" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="134" y="486" font-size="16" font-weight="700" fill="#6d28d9">⑤ GUI（PyQt6）で監視・操作</text>
+    <text x="134" y="512" font-size="13" fill="#374151">Login → MainWindow（ライブ映像監視）／ Settings（設定）／ History（検出履歴の閲覧）</text>
+    <text x="134" y="534" font-size="12" fill="#6b7280">設定管理：config.yaml・.env（パスワードは Fernet で暗号化）</text>
+  </g>
+
+  <text x="400" y="582" text-anchor="middle" font-size="12" fill="#9ca3af">※ 本図はリポジトリ（BalaneML/MountingMonitor）の構成にもとづく概念図です</text>
 </svg>

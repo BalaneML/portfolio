@@ -9,3 +9,7 @@ images/*
 !images/research/
 # 私生活ギャラリーは「公開してよい写真だけ」をここに置く（公開対象）
 !images/life/
+
+# 素材・課題PDF（サイト表示には使わない元データ。リポジトリを軽く保つ）
+GUI.pdf
+CLAUDE.pdf
