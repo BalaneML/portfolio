@@ -317,8 +317,10 @@ ul  { list-style: none; }
   margin-left: 0.6rem;
 }
 .profile-affiliation {
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--text);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 .hero-statement {
@@ -484,7 +486,9 @@ ul  { list-style: none; }
 
 .timeline-dot {
   position: absolute;
-  left: -1.75rem;
+  /* ドット中心(左端+7px)を縦線の中心(left:7px + 幅2px/2 = 8px)に合わせる。
+     timeline-item は padding-left:2rem の内側にあるため、calc で絶対左端を常に1pxに固定（フォントサイズ非依存） */
+  left: calc(1px - 2rem);
   top: 0.4rem;
   width: 14px;
   height: 14px;
