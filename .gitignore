@@ -13,3 +13,6 @@ images/*
 # 素材・課題PDF（サイト表示には使わない元データ。リポジトリを軽く保つ）
 GUI.pdf
 CLAUDE.pdf
+
+# 動画は最適化したMP4のみ公開（元の画面録画movは除外）
+images/works/*.mov

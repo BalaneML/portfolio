@@ -811,6 +811,13 @@ ul  { list-style: none; }
   padding: 0.35rem 0.6rem;
   border-top: 1px solid var(--border);
 }
+.work-video { margin-top: 0.7rem; }
+.work-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
 .work-body { display: flex; flex-direction: column; min-width: 0; }
 .work-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.65rem; }
 .work-badge {
